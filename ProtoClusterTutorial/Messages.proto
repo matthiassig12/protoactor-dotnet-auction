@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProtoClusterTutorial";
+
+message Auction {
+  enum State {
+      IDLE = 0;
+      RUNNING = 1;
+      CLOSED = 2;
+  }
+  string id = 1;
+  State state = 2;
+  repeated Lot lots = 3;
+}
+
+message Lot {
+  string id = 1;
+  int32 number = 2;
+  int64 current_bid = 3;
+  string leader = 4;
+}
+
+message Bid {
+    int32 lot_number = 1;
+    string user = 2;
+    int64 amount = 3;
+}
+
+message CreateAuctionRequest {
+  int32 number_of_lots = 1;
+}
+
+message CreateAuctionResponse {
+  Auction auction = 1;
+}
+
+message GetAuctionRequest {}
+
+message GetAuctionResponse {
+    Auction auction = 1;
+}
+
+message BidOnLotRequest {
+    Bid bid = 1;
+}
+
+message BidOnLotResponse {
+    bool bid_with_you = 1;
+}

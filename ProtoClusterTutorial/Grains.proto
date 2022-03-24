@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProtoClusterTutorial";
+
+import "Messages.proto";
+import "google/protobuf/empty.proto";
+
+service AuctionGrain {
+  rpc CreateAuction (CreateAuctionRequest) returns (CreateAuctionResponse);
+  rpc GetAuction(GetAuctionRequest) returns (GetAuctionResponse) {};
+  rpc BidOnLot(BidOnLotRequest) returns (BidOnLotResponse) {};
+}
