@@ -47,3 +47,11 @@ message BidOnLotRequest {
 message BidOnLotResponse {
     bool bid_with_you = 1;
 }
+
+message AuctionCreated {
+  int32 number_of_lots = 1;
+}
+
+message BidPlaced {
+  Bid bid = 1;
+}
